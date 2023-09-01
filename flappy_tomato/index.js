@@ -21,7 +21,7 @@ class Game {
         this.bg.src = 'images/1.png';
 
         this.pipeTop = new Image();
-        this.pipeTop.src = 'images/pipeTop.png';
+        this.pipeTop.src = 'images/pipeBottom.png';
 
         this.pipeBottom = new Image();
         this.pipeBottom.src = 'images/pipeBottom.png';
@@ -45,7 +45,7 @@ class Game {
     addPipe = () => {
         let x = this.canvas.width;
         let y =
-            Math.floor(Math.random() * this.pipeTop.width) -
+            Math.floor(Math.random() * this.pipeTop.height) -
             this.pipeTop.height;
 
         this.pipes.push({
@@ -59,7 +59,7 @@ class Game {
             bottom: {
                 img: this.pipeBottom,
                 x: x,
-                y: y + this.pipeTop.height + this.pipesGap,
+                y: y + this.pipeTop.height + this.pipeGap,
                 width: this.pipeBottom.width,
                 height: this.pipeBottom.height,
             },
@@ -99,7 +99,7 @@ class Game {
                 pipe.bottom.x,
                 pipe.bottom.y
             );
-            pipe.top.x--;
+            pipe.bottom.x--;
 
             if (pipe.top.x === 150) {
                 this.addPipe();
