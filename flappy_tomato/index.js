@@ -13,6 +13,8 @@ class Game {
     init = () => {
         this.canvas = document.getElementById('canvas');
         this.context = this.canvas.getContext('2d');
+
+        this.bird = new Image(this.bird);
     };
 }
 
