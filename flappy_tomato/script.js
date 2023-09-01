@@ -5,10 +5,11 @@ window.onload = () => {
 class Game {
     posX = 30;
     posY = 240;
-    gravity = 1.1;
+    gravity = 1.5;
     score = 0;
+
     pipes = [];
-    pipeGap = 120;
+    pipesGap = 120;
 
     init = () => {
         this.canvas = document.getElementById('canvas');
@@ -26,11 +27,12 @@ class Game {
         this.pipeBottom = new Image();
         this.pipeBottom.src = 'images/pipeBottom.png';
 
-        document.addEventListener('click', () => this.moveUp());
-        document.addEventListener(
-            'keydown',
-            (e) => e.key === ' ' && this.moveUp()
-        );
+        document.addEventListener('click', this.moveUp);
+        document.addEventListener('keydown', (e) => {
+            if (e.key == ' ') {
+                this.moveUp();
+            }
+        });
 
         this.startGame();
     };
@@ -67,8 +69,10 @@ class Game {
     };
 
     updateGame = () => {
-        this.render();
+        // logika gry
         this.addGravity();
+
+        this.render();
     };
 
     addGravity = () => {
@@ -82,9 +86,9 @@ class Game {
 
         this.context.drawImage(this.bird, this.posX, this.posY);
 
-        this.context.fillStyle = '#fff';
-        this.context.font = '20px verdana';
-        this.context.fillText(`Score: ${this.score}`, 20, 25);
+        this.context.fillStyle = '#FFF';
+        this.context.font = '20px Verdana';
+        this.context.fillText('Punkty: ' + this.score, 20, 20);
     };
 
     drawPipes = () => {
