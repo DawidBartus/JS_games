@@ -14,8 +14,8 @@ class Game {
         this.canvas = document.getElementById('canvas');
         this.context = this.canvas.getContext('2d');
 
-        this.bird = new Image();
-        this.bird.src = 'images/bird.png';
+        this.tomato = new Image();
+        this.tomato.src = 'images/tomato_small.png';
 
         this.bg = new Image();
         this.bg.src = 'images/1.png';
@@ -80,7 +80,7 @@ class Game {
 
         this.drawPipes();
 
-        this.context.drawImage(this.bird, this.posX, this.posY);
+        this.context.drawImage(this.tomato, this.posX, this.posY);
 
         this.context.fillStyle = '#fff';
         this.context.font = '20px verdana';
