@@ -45,9 +45,7 @@ class Game {
 
     addPipe = () => {
         let x = this.canvas.width;
-        let y =
-            Math.floor(Math.random() * this.pipeTop.height) -
-            this.pipeTop.height;
+        let y = Math.floor(Math.random() * 381) - 381;
 
         this.pipes.push({
             top: {
@@ -60,7 +58,7 @@ class Game {
             bottom: {
                 img: this.pipeBottom,
                 x: x,
-                y: y + this.pipeTop.height + this.pipesGap,
+                y: y + 381 + this.pipesGap,
                 width: this.pipeBottom.width,
                 height: this.pipeBottom.height,
             },
