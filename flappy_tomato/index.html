@@ -3,13 +3,29 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Document</title>
+        <title>Flappy tomato</title>
         <link rel="stylesheet" href="style.css" />
     </head>
-    <body>
-        <h3 style="user-select: none">Flappy tomato</h3>
+    <body style="display: flex; justify-content: center">
+        <main>
+            <h3 style="user-select: none; margin-left: 30px">Flappy tomato</h3>
 
-        <canvas id="canvas" width="400" height="500"></canvas>
+            <form style="user-select: none; margin-left: 30px" id="levelForm">
+                <label for="easy"
+                    ><input type="radio" name="level" id="easy" />Easy</label
+                >
+                <label for="normal"
+                    ><input
+                        type="radio"
+                        name="level"
+                        id="normal"
+                        checked
+                    />Normal</label
+                >
+            </form>
+
+            <canvas id="canvas" width="400" height="500"></canvas>
+        </main>
         <script src="index.js"></script>
     </body>
 </html>

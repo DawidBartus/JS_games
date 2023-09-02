@@ -5,11 +5,16 @@ window.onload = () => {
 class Game {
     posX = 30;
     posY = 240;
-    gravity = 1.1;
+    gravity = 1.3;
     score = 0;
 
     pipes = [];
-    pipesGap = 120;
+
+    checkLevel = () => {
+        const easy = document.getElementById('easy');
+
+        easy.checked ? (this.pipesGap = 160) : (this.pipesGap = 120);
+    };
 
     init = () => {
         this.canvas = document.getElementById('canvas');
@@ -33,6 +38,7 @@ class Game {
             (e) => e.key === ' ' && this.moveUp()
         );
 
+        this.checkLevel();
         this.startGame();
     };
 
@@ -135,7 +141,7 @@ class Game {
 
         this.pipes = [];
         this.pipesGap = 120;
-
+        this.checkLevel();
         this.addPipe();
     };
 
